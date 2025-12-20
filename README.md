@@ -1,1 +1,1 @@
-* ncg is New Card Game.(MTG based simply.)
+# ncg is New Card Game.(MTG based simply.)
