@@ -1,0 +1,4 @@
+// エントリポイント
+export function main() {
+
+}

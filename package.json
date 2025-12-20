@@ -1,0 +1,14 @@
+{
+  "name": "ncg",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "run": "node dist/main.js",
+    "exec": "tsc && node dist/main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
