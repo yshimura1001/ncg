@@ -1,32 +1,33 @@
 import { Player } from "../Model/Player";
 
-/*
-ターンの構成
+/* ターンの構成
+ターン→フェイズ→ステップ
+*/
+
+/* フェイズとステップの構成
 開始フェイズ
-  アンタップ・ステップ
   アップキープ・ステップ
   ドロー・ステップ
-メイン・フェイズ
+メイン・フェイズ1
 戦闘フェイズ
-  戦闘開始ステップ
-  攻撃クリーチャー指定ステップ
-  ブロック・クリーチャー指定ステップ
-  戦闘ダメージ・ステップ
-  戦闘終了ステップ
+　攻撃クリーチャー指定ステップ
+　ブロッククリーチャー指定ステップ
+  戦闘ダメージステップ
+メイン・フェイズ2
 終了フェイズ
   終了ステップ
   クリンナップ・ステップ
 */
 
 // フェイズの定義
-const DrawPhase    = Symbol("DrawPhase");
-const UntapPhase   = Symbol();
-const UpKeepPhase  = Symbol();
-const MainPhase_1  = Symbol("MainPhase_1");
-const CombatPahase = Symbol("CombatPhase");
-const MainPhase_2  = Symbol("MainPhase_2");
-const ExitPhase    = Symbol("ExitPhase");
-export type Phase = typeof DrawPhase | typeof UntapPhase | typeof UpKeepPhase | typeof MainPhase_1 | typeof CombatPahase | typeof MainPhase_2 | typeof ExitPhase;
+class Phase {
+  static OPENING = Symbol("OPENING");
+  static DrawPhase    = Symbol("DrawPhase");
+  static MAIN_1  = Symbol("MAIN_1");
+  static COMBAT = Symbol("COMBAT");
+  static MAIN_2  = Symbol("MAIN_2");
+  static CLOSING = Symbol("CLOSING");
+}
 
 class Turn {
   nowPhase: Phase;
@@ -34,22 +35,21 @@ class Turn {
     private mainPlayer: Player,   // メインプレイヤー
     private opponent: Player, // 対戦相手
   ) {
-    this.nowPhase = DrawPhase;
+    this.nowPhase = Phase.OPENING;
   }
-  nextPhase() {
+  nextPhase() :Phase {
     switch(this.nowPhase) {
-      case DrawPhase:
-        this.nowPhase = UntapPhase;
-      case UntapPhase:
-        this.nowPhase = MainPhase_1;
-      case MainPhase_1:
-        this.nowPhase = CombatPahase;
-      case CombatPahase:
-        this.nowPhase = MainPhase_2;
-      case MainPhase_2:
-        this.nowPhase = ExitPhase;
+      case Phase.OPENING:
+        this.nowPhase = Phase.MAIN_1;
+      case Phase.MAIN_1:
+        this.nowPhase = Phase.COMBAT;
+      case Phase.COMBAT:
+        this.nowPhase = Phase.MAIN_2;
+      case Phase.MAIN_2:
+        this.nowPhase = Phase.CLOSING;
       default:
         console.log("Invalid Phase!");
     }
+    return this.nowPhase;
   }
 }

@@ -1,8 +1,12 @@
 // 色の定義
-const White     = Symbol();
-const Blue      = Symbol();
-const Black     = Symbol();
-const Red       = Symbol();
-const Green     = Symbol();
-const ColorLess = Symbol();
-export type Color = typeof White | typeof Blue | typeof Black | typeof Red | typeof Green | typeof ColorLess;
+export class Color {
+  static WHITE = Symbol("WHITE");
+  static BLUE = Symbol("BLUE");
+  static BLACK = Symbol("BLACK");
+  static RED = Symbol("RED");
+  static GREEN = Symbol("GREEN");
+  static COLORLESS = Symbol("COLORLESS");
+  constructor(
+    private color: symbol
+  ) {}
+}

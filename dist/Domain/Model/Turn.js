@@ -18,13 +18,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
   クリンナップ・ステップ
 */
 // フェイズの定義
-const DrawPhase = Symbol();
+const DrawPhase = Symbol("DrawPhase");
 const UntapPhase = Symbol();
 const UpKeepPhase = Symbol();
-const MainPhase_1 = Symbol();
-const CombatPahase = Symbol();
-const MainPhase_2 = Symbol();
-const ExitPhase = Symbol();
+const MainPhase_1 = Symbol("MainPhase_1");
+const CombatPahase = Symbol("CombatPhase");
+const MainPhase_2 = Symbol("MainPhase_2");
+const ExitPhase = Symbol("ExitPhase");
 class Turn {
     constructor(mainPlayer, // メインプレイヤー
     opponent) {

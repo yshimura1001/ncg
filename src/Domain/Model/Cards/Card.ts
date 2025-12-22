@@ -1,15 +1,18 @@
 import { Cost } from "../Commons/Cost";
 
-
 // カードタイプの定義
-const Creature = Symbol("Creature");
-const Instant  = Symbol("Instant");
-const Sorcery  = Symbol("Sorcery");
-const Enchant  = Symbol("Enchant");
-const Artifact = Symbol("Artifact");
-const Token    = Symbol("Token");
-const Crest    = Symbol("Crest");
-export type CardType = typeof Creature | typeof Instant | typeof Sorcery | typeof Enchant | typeof Artifact | typeof Token | typeof Crest;
+export class CardType {
+  static CREATURE = Symbol("CREATURE");
+  static INSTANT  = Symbol("INSTANT");
+  static SORCERY  = Symbol("SORCERY");
+  static ENCHANT  = Symbol("ENCHANT");
+  static ARTIFACT = Symbol("ARTIFACT");
+  static TOKEN    = Symbol("TOKEN");
+  static CREST    = Symbol("CREST");
+  constructor(
+    private cardType: symbol
+  ) {}
+}
 
 export class Card {
   constructor(

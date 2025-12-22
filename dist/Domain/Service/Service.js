@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Manager = void 0;
-class Manager {
+exports.Service = void 0;
+class Service {
 }
-exports.Manager = Manager;
+exports.Service = Service;
