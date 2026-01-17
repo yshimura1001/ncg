@@ -1,4 +1,4 @@
-import { Cost } from "../Commons/Cost";
+import { Cost } from "../Commons/Cost.js";
 
 // カードタイプの定義
 export class CardType {

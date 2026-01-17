@@ -1,4 +1,4 @@
-import { Color } from "./Color";
+import { Color } from "./Color.js";
 
 // コストの定義
 export interface Cost {

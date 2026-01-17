@@ -1,4 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const PlayFirst = Symbol("PlayFirst");
-const DrawFirst = Symbol("DrawFirst");
+export class Order {
+    constructor(order) {
+        this.order = order;
+    }
+}
+Order.PLAY_FIRST = Symbol("PLAY_FIRST");
+Order.DRAW_FIRST = Symbol("DRAW_FIRST");

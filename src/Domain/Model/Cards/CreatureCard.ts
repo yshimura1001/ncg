@@ -1,5 +1,5 @@
-import { Cost } from "../Commons/Cost";
-import { Card, CardType } from "./Card";
+import { Cost } from "../Commons/Cost.js";
+import { Card, CardType } from "./Card.js";
 
 export class CreatureCard extends Card {
   constructor(

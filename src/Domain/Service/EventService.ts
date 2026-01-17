@@ -1,4 +1,4 @@
-import { Service } from "./Service";
+import { Service } from "./Service.js";
 
 export class EventService extends Service {
 

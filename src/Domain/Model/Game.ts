@@ -1,4 +1,4 @@
-import { Player } from "../Model/Player";
+import { Player } from "../Model/Player.js";
 
 export class Order {
   static PLAY_FIRST = Symbol("PLAY_FIRST");

@@ -1,5 +1,5 @@
-import { Card } from "./Cards/Card";
-import { Order } from "./Game";
+import { Card } from "./Cards/Card.js";
+import { Order } from "./Game.js";
 
 export class Human {
   constructor(

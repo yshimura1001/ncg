@@ -1,51 +1,50 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-/*
-ターンの構成
+/* ターンの構成
+ターン→フェイズ→ステップ
+*/
+/* フェイズとステップの構成
 開始フェイズ
-  アンタップ・ステップ
   アップキープ・ステップ
   ドロー・ステップ
-メイン・フェイズ
+メイン・フェイズ1
 戦闘フェイズ
-  戦闘開始ステップ
-  攻撃クリーチャー指定ステップ
-  ブロック・クリーチャー指定ステップ
-  戦闘ダメージ・ステップ
-  戦闘終了ステップ
+ 攻撃クリーチャー指定ステップ
+ ブロッククリーチャー指定ステップ
+  戦闘ダメージステップ
+メイン・フェイズ2
 終了フェイズ
   終了ステップ
   クリンナップ・ステップ
 */
 // フェイズの定義
-const DrawPhase = Symbol("DrawPhase");
-const UntapPhase = Symbol();
-const UpKeepPhase = Symbol();
-const MainPhase_1 = Symbol("MainPhase_1");
-const CombatPahase = Symbol("CombatPhase");
-const MainPhase_2 = Symbol("MainPhase_2");
-const ExitPhase = Symbol("ExitPhase");
+class Phase {
+}
+Phase.OPENING = Symbol("OPENING");
+Phase.DrawPhase = Symbol("DrawPhase");
+Phase.MAIN_1 = Symbol("MAIN_1");
+Phase.COMBAT = Symbol("COMBAT");
+Phase.MAIN_2 = Symbol("MAIN_2");
+Phase.CLOSING = Symbol("CLOSING");
 class Turn {
     constructor(mainPlayer, // メインプレイヤー
     opponent) {
         this.mainPlayer = mainPlayer;
         this.opponent = opponent;
-        this.nowPhase = DrawPhase;
+        this.nowPhase = Phase.OPENING;
     }
     nextPhase() {
         switch (this.nowPhase) {
-            case DrawPhase:
-                this.nowPhase = UntapPhase;
-            case UntapPhase:
-                this.nowPhase = MainPhase_1;
-            case MainPhase_1:
-                this.nowPhase = CombatPahase;
-            case CombatPahase:
-                this.nowPhase = MainPhase_2;
-            case MainPhase_2:
-                this.nowPhase = ExitPhase;
+            case Phase.OPENING:
+                this.nowPhase = Phase.MAIN_1;
+            case Phase.MAIN_1:
+                this.nowPhase = Phase.COMBAT;
+            case Phase.COMBAT:
+                this.nowPhase = Phase.MAIN_2;
+            case Phase.MAIN_2:
+                this.nowPhase = Phase.CLOSING;
             default:
                 console.log("Invalid Phase!");
         }
+        return this.nowPhase;
     }
 }
+export {};

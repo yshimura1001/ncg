@@ -1,7 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.EventService = void 0;
-const Service_1 = require("./Service");
-class EventService extends Service_1.Service {
+import { Service } from "./Service.js";
+export class EventService extends Service {
 }
-exports.EventService = EventService;

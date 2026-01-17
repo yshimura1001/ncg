@@ -1,9 +1,12 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 // 色の定義
-const White = Symbol();
-const Blue = Symbol();
-const Black = Symbol();
-const Red = Symbol();
-const Green = Symbol();
-const ColorLess = Symbol();
+export class Color {
+    constructor(color) {
+        this.color = color;
+    }
+}
+Color.WHITE = Symbol("WHITE");
+Color.BLUE = Symbol("BLUE");
+Color.BLACK = Symbol("BLACK");
+Color.RED = Symbol("RED");
+Color.GREEN = Symbol("GREEN");
+Color.COLORLESS = Symbol("COLORLESS");

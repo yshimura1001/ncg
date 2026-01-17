@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.SpellStack = exports.EffectStack = exports.StackService = void 0;
-const Service_1 = require("./Service");
-class StackService extends Service_1.Service {
+import { Service } from "./Service.js";
+export class StackService extends Service {
     constructor() {
         super(...arguments);
         this.effctStackService = new EffectStackService();
@@ -15,7 +12,6 @@ class StackService extends Service_1.Service {
         return this.spellStackService;
     }
 }
-exports.StackService = StackService;
 class EffectStackService extends StackService {
     constructor() {
         super();
@@ -64,11 +60,9 @@ class Stack {
 }
 /*
 100(20*5)個以上、スタックに乗せたら、負けにする。
-ループはどうするか検討する。
+ループ→同じ効果のスタックが20回以上続いた場合とスタックに乗った効果の解決数が連続20回以上になった場合は、負けにする。
 */
-class EffectStack extends Stack {
+export class EffectStack extends Stack {
 }
-exports.EffectStack = EffectStack;
-class SpellStack extends Stack {
+export class SpellStack extends Stack {
 }
-exports.SpellStack = SpellStack;

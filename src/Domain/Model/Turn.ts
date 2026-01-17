@@ -1,4 +1,4 @@
-import { Player } from "../Model/Player";
+import { Player } from "../Model/Player.js";
 
 /* ターンの構成
 ターン→フェイズ→ステップ

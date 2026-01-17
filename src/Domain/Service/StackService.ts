@@ -1,7 +1,7 @@
-import { Service } from "./Service";
-import { Player } from "../Model/Player";
-import { Card } from "../Model/Cards/Card";
-import { Effect } from "../Model/Effects/Effect";
+import { Service } from "./Service.js";
+import { Player } from "../Model/Player.js";
+import { Card } from "../Model/Cards/Card.js";
+import { Effect } from "../Model/Effects/Effect.js";
 
 export class StackService extends Service {
   private effctStackService: EffectStackService = new EffectStackService();

@@ -1,12 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreatureCard = void 0;
-const Card_1 = require("./Card");
-class CreatureCard extends Card_1.Card {
+import { Card } from "./Card.js";
+export class CreatureCard extends Card {
     constructor(name, types, cost, text, power, toughness) {
         super(name, types, cost, text);
         this.power = power;
         this.toughness = toughness;
     }
 }
-exports.CreatureCard = CreatureCard;
